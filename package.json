@@ -1,0 +1,35 @@
+{
+  "name": "ronline",
+  "version": "0.0.1",
+  "description": "Compare several version of R.",
+  "main": "r-online_0.0.1.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColinFay/ronline.git"
+  },
+  "keywords": [
+    "r",
+    "stats"
+  ],
+  "scripts": {
+    "start": "node r-online_0.0.1.js"
+  },
+  "author": {
+    "name": "Colin Fay",
+    "email": "contact@colinfay.me",
+    "url": "https://colinfay.me"
+  },
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ColinFay/ronline/issues"
+  },
+  "homepage": "https://github.com/ColinFay/ronline#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.2.0",
+    "tmp": "^0.1.0"
+  }
+}

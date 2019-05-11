@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>R online</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins');
+    :root{
+      --first: #9BADBF;
+      --second: #D1D5DE;
+      --third: #837569;
+      --fourth: #657153;
+      --fifth: #8AAA79;
+    }
+    
+    .underline{
+      border-bottom: 4px solid;
+      width: 100%;
+      display: block;
+    }
+
+    .anchorin {
+      position: relative;
+      padding-top: 75px;
+    }
+    
+    h2::before { 
+      display: block; 
+      content: " "; 
+      margin-top: -285px; 
+      height: 285px; 
+      visibility: hidden; 
+      pointer-events: none;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    pre{
+      background-color: #f8f9fa;
+      padding:1rem;
+    }
+    h2 {
+      padding-top:1rem;
+      padding-bottom:1rem;
+    }
+    #first{
+      background-color: var(--first, #9BADBF)
+    }
+    #second{
+      background-color:var(--second, #D1D5DE);
+    }
+    #third{
+      background-color: var(--first, #9BADBF);
+    }
+    /* Absolute Center Spinner */
+    /* from https://codepen.io/tbrownvisuals/pen/ZpXEZw */
+/* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+  </style>  
+  </head>
+ 
+    <body>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">R Online</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#tryr">Try R</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#comparer">Compare R</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+  <div class="loading">Loading&#8230;</div>
+  <div class="container-fluid anchorin">
+        <div  class="container">
+        <h1 id="home" class="underline"> R Online </h1>
+        </div>
+        </div>
+        
+      <div class="container-fluid" id = "first">
+        <div  class="container">
+        <h2 id = "tryr" class = "anchorin" >Try R</h2>
+        <p>Run a piece of code against a specific version of R, from 3.6.0 to 3.1.0. To do that, simply enter the code below and click the RUN button.</p>
+        
+          <div class="form-group">
+          <label for="versionselect">Choose a version of R:</label>
+            <select class="form-control optionstofill" id="versionselect">
+            </select>
+          </div>
+          
+          <h3>Enter code:</h3>
+        
+        <pre contenteditable="true" id = "code"># run R Online
+
+R.version.string
+
+print("hello world")</pre>
+
+        <p><input type="button" value="RUN" id="compile" /></p>
+         <div class="row">
+          <div class="col-sm-12">
+        <pre id = "result"></pre>
+        <p class = "anchorin"></p>
+                </div>
+        </div>
+        </div>
+        </div>
+        <div class="container-fluid" id = "second" >        
+        <div class="container">
+          <h2 id = "comparer" class = "anchorin" >Compare R</h2>
+          <p>Run a piece of code against two specific versions of R, from 3.6.0 to 3.1.0. To do that, simply enter the code below and click the RUN button.</p>
+          <p>See below for example of changes between versions.</p>
+           <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+          <label for="versionselect">Choose one version of R:</label>
+            <select class="form-control optionstofill" id="versionselect1">
+            </select>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="form-group">
+          <label for="versionselect">Choose another version of R:</label>
+            <select class="form-control optionstofill" id="versionselect2">
+            </select>
+          </div>
+        </div>
+        </div>
+          
+          <h3>Enter code:</h3>
+          <div>
+            <pre contenteditable="true" id = "code2"> # run R Online
+
+R.version.string
+
+print("hello world")</pre>
+          </div>
+        <p><input type="button" value="RUN" id="compile2" /></p>
+        
+        <div class="row">
+          <div class="col-sm-6">
+            <p>Results for version 1:</p>
+            <pre id = "result1"></pre>
+          </div>
+          <div class="col-sm-6">
+            <p>Results for version 2:</p>
+            <pre id = "result2"></pre>
+          </div>
+        </div>
+        <div>
+          <p>&nbsp;</p>
+          <p>Example of changes between R versions:</p>
+          <ul>
+            <li>"The default method for generating from a discrete uniform distribution (...) has been changed" in R 3.6.0. You can see this by running <code>set.seed(2811); sample(1:1000, 2)</code> against R 3.6.0 and older versions.</li>
+            <li>Example of new functions in R 3.6.0: <code>nullfile(); osVersion; asplit()</code>.</li>
+            <li>New implementation in R 3.5.0: <code>factor()</code> of empty elements <code>factor(list())</code> returns an empty factor, an error before.</li>
+            <li>Starting from R 3.5.0, <code>{methods}</code> is now loaded when <code>RScript</code> is called: see <code>sessionInfo()$basePkgs</code>.</li>
+          </ul>
+        </div>
+        <p class = "anchorin"></p>
+        </div>
+        </div>
+        
+        <div class="container-fluid"  id = "third">   
+        <div class="container">
+          <h2 id = "about" class = "anchorin" >About </h2>
+          <h3>About the App</h3>
+          <p>This app has been built by <a href = "https://twitter.com/_ColinFay">@_colinfay</a> - <a href = "https://colinfay.me/">colinfay.me</a></p>
+          <h3>I've found a bug / something is not working</h3>
+          <p>Please open an issue on the <a href = "https://github.com/ColinFay/ronline/issues">GitHub repo</a>.</p>
+          <h3>How does it work?</h3>
+          <p>Each time you press <em>RUN</em>, a <code>docker run</code> is launched with the version of R you've specified, and the text you've entered in the ad hoc section is run via <code>RScript</code>.</p>
+          <h3>Tech specs</h3>
+          <p>This service is built on top of:</p>
+          <ul>
+            <li><a href ="https://nodejs.org/en/">Node JS</a>, which runs the whole service, and launch the dockers.</li>
+            <li><a href = "https://getbootstrap.com/">Bootstrap</a> for the UI.</li>
+            <li><a href = "https://www.docker.com/">Docker</a>, and especially the <a href = "https://www.docker.com/"><code>rocker/r-ver</code></a> versions of R.</li>
+          </ul>
+          <h3>Licence</h3>
+          <p>This work is under licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html">GPL-3</a> (<a href="https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)">TL;DR legal</a>).</p>
+          <br>
+          <p class = "anchorin"></p>
+          </div>
+        
+        </div>
+        
+        <!-- Footer -->
+<footer class="page-footer font-small blue">
+      <!-- DON'T REMOVE THIS FOOTER -->
+  <div class="bottom-copyright text-center py-3">Made with <span>&#x1F918</span> by 
+    <a href="https://colinfay.me"> Colin Fay</a> - Work under GPL-3 Licence. 
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('0.0.0.0:8080', {secure: true});
+            socket.on('res', function(message) {
+              console.log('res');
+              // debugger;
+              document.getElementById("result").innerText = message;
+              $(".loading").hide()
+            })
+            socket.on('res1', function(message) {
+              console.log('re1');
+              // debugger;
+              document.getElementById("result1").innerText = message;
+              $(".loading").hide()
+            })
+            socket.on('res2', function(message) {
+              console.log('re2');
+              // debugger;
+              document.getElementById("result2").innerText = message;
+              $(".loading").hide()
+            })
+            $('#compile').click(function () {
+              $(".loading").show()
+              console.log("compile")
+              var txt = document.getElementById("code").innerText;
+              var ver = $("#versionselect").find("option:selected").text();
+              socket.emit('message', {txt: txt, ver: ver});
+            })
+            $('#compile2').click(function () {
+              $(".loading").show()
+              console.log("compile2")
+              var txt = document.getElementById("code2").innerText;
+              var ver = $("#versionselect1").find("option:selected").text();
+              var ver2 = $("#versionselect2").find("option:selected").text();
+              socket.emit('message2', {txt: txt, ver: ver, ver2: ver2});
+            })
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script>
+        $(function(){
+          var txt = ""
+          var vers = ["3.6.0", "3.5.3", "3.5.2", "3.5.1", "3.5.0", "3.4.4", 
+                      "3.4.3", "3.4.2", "3.4.1", "3.4.0", "3.3.0", "3.2.0", "3.1.0"]
+          for (var i = 0; i < vers.length; i ++){
+            txt = txt + "<option>" + vers[i] + "</option>"
+          }
+          $(".optionstofill").html(txt); 
+          $(".nav-item").on("click", function(){
+            $(".nav-item").removeClass("active");
+	          $(this).addClass("active");
+          }) 
+          $(".loading").hide()
+        })
+        </script>
+    </body>
+</html>
