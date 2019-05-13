@@ -2,7 +2,7 @@
 
 A NodeJS app to explore multiple versions of R. 
 
-Online version at <https://srv.colinfay.me:1001/>
+Online version at <https://srv.colinfay.me/r-online>
 
 ## How to
 
